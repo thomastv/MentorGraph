@@ -18,3 +18,19 @@ packages = ["hr_remediation_agent"]
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+# ==============================================================================
+# agents-cli Deployment Configuration
+# ==============================================================================
+# agents-cli reads this block to determine WHERE and HOW to deploy the agent.
+# - agents-cli infra single-project  → uses project + region to provision
+#   Artifact Registry, Cloud Storage staging bucket, and Service Account.
+# - agents-cli deploy                → uses deployment_target + entry_point
+#   to build the container and boot it in the Agent Runtime.
+# Fill in `project` with your real GCP Project ID before running infra/deploy.
+[tool.agents-cli]
+deployment_target = "agent_runtime"
+project = "your-gcp-enterprise-project"
+region = "us-central1"
+app_name = "HR_Remediation_Manager_App"
+entry_point = "hr_remediation_agent.deploy_gemini:app"

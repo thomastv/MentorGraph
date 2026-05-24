@@ -1,2 +1,51 @@
+# ==============================================================================
+# MentorGraph .gitignore
+# ==============================================================================
+
+# --- Secrets & Credentials (NEVER commit these) ---
 .env
+*.json.key
+*-credentials.json
+*-service-account.json
+service_account_key*.json
+
+# --- Python Virtual Environment ---
+.venv/
+venv/
+env/
 __pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# --- Build & Distribution ---
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
+
+# --- uv lock file (optional: commit if you want reproducible installs) ---
+# uv.lock
+
+# --- IDE & Editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# --- GCP & Cloud ---
+# Application Default Credentials cached locally by gcloud
+# (stored in %APPDATA%\gcloud, not in this project - listed for awareness)
+gcloud-service-key.json
+terraform.tfstate
+terraform.tfstate.backup
+.terraform/
+
+# --- Testing & Coverage ---
+.pytest_cache/
+.coverage
+htmlcov/
